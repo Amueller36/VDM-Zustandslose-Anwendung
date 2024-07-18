@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: stateless-app-frontend
+  name: stateless-app-frontend-svc
+  namespace: stateless-app-ns
+spec:
+  ports:
+    - name: "frontend-port"
+      port: 80
+      targetPort: 80
+  selector:
+    service: stateless-app-frontend

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: stateless-app-backend-uploader
+  name: stateless-app-backend-uploader-deployment
+  namespace: stateless-app-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: stateless-app-backend-uploader
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        service: stateless-app-backend-uploader
+    spec:
+      containers:
+        - image: andre562/stateless_app_backend_uploader:latest
+          name: uploader
+          ports:
+            - containerPort: 5000
+              protocol: TCP
+      restartPolicy: Always

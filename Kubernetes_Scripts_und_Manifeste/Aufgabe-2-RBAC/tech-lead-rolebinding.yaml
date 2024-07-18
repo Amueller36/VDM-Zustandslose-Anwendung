@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: tech-lead-binding
+  namespace: stateless-app-ns
+subjects:
+- kind: User
+  name: hans
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: tech-lead
+  apiGroup: rbac.authorization.k8s.io

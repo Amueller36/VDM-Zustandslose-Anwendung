@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: stateless-app-frontend
+  name: stateless-app-frontend-deployment
+  namespace: stateless-app-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: stateless-app-frontend
+  template:
+    metadata:
+      labels:
+        service: stateless-app-frontend
+    spec:
+      containers:
+        - image: andre562/stateless_app_frontend:latest
+          name: frontend
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          resources:
+            requests:
+              cpu: "100m"
+            limits:
+              cpu: "200m"
+      restartPolicy: Always

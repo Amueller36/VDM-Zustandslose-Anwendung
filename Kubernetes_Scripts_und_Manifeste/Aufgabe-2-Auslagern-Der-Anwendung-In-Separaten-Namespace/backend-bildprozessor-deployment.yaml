@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: stateless-app-image-processor
+  name: stateless-app-image-processor-deployment
+  namespace: stateless-app-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: stateless-app-image-processor
+  template:
+    metadata:
+      labels:
+        service: stateless-app-image-processor
+    spec:
+      containers:
+        - image: andre562/stateless_app_image_processor:latest
+          name: image-processor
+          ports:
+          - containerPort: 5000
+      restartPolicy: Always

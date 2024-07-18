@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: load-generator
+  namespace: stateless-app-ns
+spec:
+  containers:
+  - name: load-generator
+    image: jordi/ab
+    command: ['sh', '-c', 'ab -n 100000 -c 100 http://stateless-app-frontend-svc:80/']

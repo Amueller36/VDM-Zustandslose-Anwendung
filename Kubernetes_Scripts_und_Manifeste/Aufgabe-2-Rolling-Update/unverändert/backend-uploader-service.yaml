@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: stateless-app-backend-uploader
+  name: stateless-app-backend-uploader-svc
+  namespace: stateless-app-ns
+spec:
+  ports:
+    - name: "flask-port"
+      port: 5000
+      targetPort: 5000
+  selector:
+    service: stateless-app-backend-uploader

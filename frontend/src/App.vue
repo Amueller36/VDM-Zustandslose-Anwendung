@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <h1>Image Processing Pipeline</h1>
+    <h2>BLAZINGLY NEW FRONTEND</h2>
     <input type="file" @change="onFileChange" />
     <button @click="uploadImage">Upload Image</button>
     <div v-if="message">{{ message }}</div>

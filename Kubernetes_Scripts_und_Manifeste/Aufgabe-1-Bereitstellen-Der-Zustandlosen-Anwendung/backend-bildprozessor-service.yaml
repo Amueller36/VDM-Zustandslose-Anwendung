@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: stateless-app-image-processor
+  name: stateless-app-image-processor-svc
+spec:
+  ports:
+    - name: "api-port"
+      port: 5000
+      targetPort: 5000
+  selector:
+    service: stateless-app-image-processor
